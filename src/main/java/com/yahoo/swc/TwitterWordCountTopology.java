@@ -12,6 +12,7 @@ import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
 import backtype.storm.generated.AlreadyAliveException;
+import backtype.storm.generated.AuthorizationException;
 import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.topology.base.BaseRichBolt;
@@ -53,7 +54,7 @@ public class TwitterWordCountTopology {
 	 * @throws InvalidTopologyException 
 	 * @throws AlreadyAliveException 
 	 */
-	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException {
+	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException {
 		
 		if(args.length < 1 || !ALLOWED_OPTION.containsKey(args[0])){
 			System.out.println("Usage \"TwitterWordCountTopology CountingMode\"");
